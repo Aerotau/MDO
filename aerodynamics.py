@@ -1,26 +1,44 @@
-def area_da_asa(c_r, c_t, b_ret, b_trap):
-  S = c_r * b_ret + (c_r + c_t) * b_trap/2
+def wing_area(c_r, c_t, b_rect, b_trap):
+  """
+  >>> wing_area(2,2,4,5)
+  18.0
+  """
+  S = c_r * b_rect + (c_r + c_t) * b_trap/2
   return S
 
-def afilamento(b_ret, b_trap, c_t, c_r):
-  afil = 0
-  if(b_ret>0 and b_trap >0):
-    afil = (1 + c_t / c_r)/2
+def taper_ratio(b_rect, b_trap, c_t, c_r):
+  """
+  >>> taper_ratio(4,2,2,1)
+  1.5
+  """
+  
+  if(b_rect>0 and b_trap >0):
+    afil = (1 + c_t / c_r)/2 #entender
   else:
     afil = c_t / c_r
   return afil
 
-def envergadura (b_ret, b_trap):
-  b = b_ret + b_trap
+def wingspan(b_rect, b_trap):
+  """
+  >>> wingspan(2,4)
+  6
+  """
+
+  b = b_rect + b_trap
   return b
 
 def aspect_ratio(b, S):
+  """
+  >>> aspect_ratio (2,4)
+  1.0
+  """
+
   return b**2 / S
 
-def calculo_da_asa(c_r, c_t, b_ret, b_trap):
-  b = envergadura(b_ret, b_trap)
-  S = area_da_asa(c_r, c_t, b_ret, b_trap)
-  afil = afilamento(b_ret, b_trap, c_t, c_r)
+def calculo_da_asa(c_r, c_t, b_rect, b_trap):
+  b = wingspan(b_rect, b_trap)
+  S = wing_area(c_r, c_t, b_rect, b_trap)
+  afil = taper_ratio(b_rect, b_trap, c_t, c_r)
   AR = aspect_ratio(b, S)
 
   resultados = {
