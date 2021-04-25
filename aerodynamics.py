@@ -35,27 +35,22 @@ def aspect_ratio(b, S):
 
   return b**2 / S
 
-def calculo_da_asa(c_r, c_t, b_rect, b_trap):
+if __name__ == "__main__":
+  c_r, c_t, b_rect, b_trap = 0.455, 0.455, 2.35, 0
+  print("When the inputs are:")
+  print(f'c_r = {c_r} \nc_t = {c_t} \nb_rect = {b_rect} \nb_trap = {b_trap}\n')
+
   b = wingspan(b_rect, b_trap)
-  S = wing_area(c_r, c_t, b_rect, b_trap)
+  s = wing_area(c_r, c_t, b_rect, b_trap)
   afil = taper_ratio(b_rect, b_trap, c_t, c_r)
-  AR = aspect_ratio(b, S)
+  ar = aspect_ratio(b, s)
 
-  resultados = {
-    "area da asa": S,
-    "afilamento": afil,
-    "envergadura": b,
-    "AR": AR,
+  results = {
+    "Area": s,
+    "Taper ratio": afil,
+    "Wingspan": b,
+    "Aspect ratio": ar,
   }
-  return resultados
-
-resultado = calculo_da_asa(0.455, 0.455, 2.35, 0)
-area_da_asa = resultado["area da asa"]
-afilamento = resultado["afilamento"]
-envergadura = resultado["envergadura"]
-AR = resultado["AR"]
-
-print(f'A area da asa e: {area_da_asa}')
-print(f'O afilamento e: {afilamento}')
-print(f'A envergadura e: {envergadura}')
-print(f'O AR e: {AR}')
+  print("The results are:")
+  for key, value in results.items():
+      print(f'{key} = {value}')
