@@ -1,5 +1,6 @@
-def wing_area(c_r, c_t, b_rect, b_trap):
+def trapezoidal_wing_area(c_r, c_t, b_rect, b_trap):
   """
+  Computes the area for a trapezoidal wing
   >>> wing_area(2,2,4,5)
   18.0
   """
