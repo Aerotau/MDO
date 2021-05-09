@@ -1,7 +1,7 @@
-def trapezoidal_wing_area(c_r, c_t, b_rect, b_trap):
+def mixed_wing_area(c_r, c_t, b_rect, b_trap):
   """
-  Computes the area for a trapezoidal wing
-  >>> wing_area(2,2,4,5)
+  Computes the area for a mixe wing (trapezoidal + rectangular)
+  >>> mixed_wing_area(2,2,4,5)
   18.0
   """
   S = c_r * b_rect + (c_r + c_t) * b_trap/2
@@ -42,7 +42,7 @@ if __name__ == "__main__":
   print(f'c_r = {c_r} \nc_t = {c_t} \nb_rect = {b_rect} \nb_trap = {b_trap}\n')
 
   b = wingspan(b_rect, b_trap)
-  s = wing_area(c_r, c_t, b_rect, b_trap)
+  s = mixed_wing_area(c_r, c_t, b_rect, b_trap)
   afil = taper_ratio(b_rect, b_trap, c_t, c_r)
   ar = aspect_ratio(b, s)
 
