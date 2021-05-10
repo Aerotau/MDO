@@ -1,11 +1,30 @@
+from math import pi
 def mixed_wing_area(c_r, c_t, b_rect, b_trap):
   """
-  Computes the area for a mixe wing (trapezoidal + rectangular)
+  Computes the area for a mixed wing (trapezoidal + rectangular)
   >>> mixed_wing_area(2,2,4,5)
   18.0
   """
-  S = c_r * b_rect + (c_r + c_t) * b_trap/2
-  return S
+  s = c_r * b_rect + (c_r + c_t) * b_trap/2
+  return s
+
+def trapezoidal_wing_area(c_r, c_t, b):
+  """
+  Computes the area for a trapezoidal wing
+  >>> trapezoidal_wing_area(0.5,0.2,2)
+  0.7
+  """
+  return (c_r + c_t) * b / 2
+  
+
+def eliptical_wing_area(c_r, b):
+  """
+  Computes the area for a trapezoidal wing
+  >>> eliptical_wing_area(0.4, 2)
+  0.6283185307179586
+  """
+  return pi/4 * b * c_r
+
 
 def taper_ratio(b_rect, b_trap, c_t, c_r):
   """
