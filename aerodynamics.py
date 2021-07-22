@@ -55,6 +55,14 @@ def aspect_ratio(b, S):
 
   return b**2 / S
 
+def lift(rho, v, S, C_l):
+  """
+  >>> lift(1.225, 17, 0.78, 1.2)
+  165.68370000000002
+  """
+
+  return rho * v**2 * S * C_l / 2
+
 if __name__ == "__main__":
   c_r, c_t, b_rect, b_trap = 0.455, 0.455, 2.35, 0
   print("When the inputs are:")
